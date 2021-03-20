@@ -8,7 +8,9 @@ For more details about the apis, refer to `https://api-docs.transferwise.com/`.
 
 1. Create Sandbox account https://sandbox.transferwise.tech/
 2. Set following two environment variables.
+    
     WISE_API_URL
+    
     WISE_API_TOKEN
 
 ### Guide

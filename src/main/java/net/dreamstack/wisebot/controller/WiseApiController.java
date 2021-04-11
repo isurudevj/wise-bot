@@ -5,6 +5,7 @@ import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
 import net.dreamstack.wisebot.domain.accounts.Accounts;
 import net.dreamstack.wisebot.domain.profiles.Profile;
+import net.dreamstack.wisebot.domain.quotes.QuoteResponse;
 import net.dreamstack.wisebot.domain.rates.Rate;
 import net.dreamstack.wisebot.service.DefaultWiseApiService;
 import org.springframework.http.MediaType;
@@ -13,6 +14,8 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 import reactor.core.publisher.Flux;
 import reactor.core.publisher.Mono;
+
+import java.math.BigDecimal;
 
 @RestController
 @RequestMapping("/wise-bot")
@@ -37,6 +40,11 @@ public class WiseApiController {
     @GetMapping(path = "/accounts", produces = MediaType.APPLICATION_STREAM_JSON_VALUE)
     public Mono<Accounts> getAccounts() {
         return wiseApiService.getAccounts("LKR");
+    }
+
+    @GetMapping(path = "/quotes", produces = MediaType.APPLICATION_STREAM_JSON_VALUE)
+    public Mono<QuoteResponse> getQuote() {
+        return wiseApiService.getQuotes("SGD", "LKR", BigDecimal.valueOf(10));
     }
 
 }

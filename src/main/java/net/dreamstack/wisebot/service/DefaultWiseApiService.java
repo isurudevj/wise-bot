@@ -4,6 +4,7 @@ import lombok.extern.slf4j.Slf4j;
 import net.dreamstack.wisebot.domain.accounts.Accounts;
 import net.dreamstack.wisebot.domain.profiles.Profile;
 import net.dreamstack.wisebot.domain.quotes.CreateQuote;
+import net.dreamstack.wisebot.domain.quotes.CreateTopUpQuote;
 import net.dreamstack.wisebot.domain.quotes.QuoteResponse;
 import net.dreamstack.wisebot.domain.rates.Rate;
 import net.dreamstack.wisebot.setting.WiseSetting;
@@ -100,6 +101,17 @@ public class DefaultWiseApiService implements  WiseApiService {
                 .accept(MediaType.APPLICATION_JSON)
                 .contentType(MediaType.APPLICATION_JSON)
                 .bodyValue(createQuote)
+                .retrieve().bodyToMono(new ParameterizedTypeReference<QuoteResponse>() {
+                });
+    }
+
+    @Override
+    public Mono<QuoteResponse> createTopUpQuote(CreateTopUpQuote createTopUpQuote) {
+        return webClient.post().uri(uriBuilder -> uriBuilder.path(PATH_QUOTES).build())
+                .header(HttpHeaders.AUTHORIZATION, authorizationHeaderValue)
+                .accept(MediaType.APPLICATION_JSON)
+                .contentType(MediaType.APPLICATION_JSON)
+                .bodyValue(createTopUpQuote)
                 .retrieve().bodyToMono(new ParameterizedTypeReference<QuoteResponse>() {
                 });
     }

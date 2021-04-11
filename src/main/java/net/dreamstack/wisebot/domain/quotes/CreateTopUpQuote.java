@@ -11,13 +11,13 @@ import java.math.BigDecimal;
 @NoArgsConstructor
 @AllArgsConstructor
 @Builder
-public class CreateQuote {
+public class CreateTopUpQuote {
 
     private Long profile;
-    private BigDecimal sourceAmount;
+    private String rateType;
     private String source;
     private String target;
-    private String rateType;
+    private BigDecimal sourceAmount;
     private String type;
 
 }

@@ -1,3 +1,6 @@
 wise:
   base-url: ${WISE_API_URL}
   token: ${WISE_API_TOKEN}
+
+transfers:
+  profile-id: ${PROFILE_ID}

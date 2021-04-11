@@ -22,3 +22,9 @@ For more details about the apis, refer to `https://api-docs.transferwise.com/`.
 ```shell
 https://api-docs.transferwise.com/#payouts-guide-create-quote
 ```
+
+2. Wise postman api documentation 
+
+```shell
+https://github.com/transferwise/public-api-postman-collection/blob/master/all-endpoints/TW-API.postman_collection.json
+```

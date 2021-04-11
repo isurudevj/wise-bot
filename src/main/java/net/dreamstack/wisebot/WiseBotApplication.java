@@ -1,15 +1,17 @@
 package net.dreamstack.wisebot;
 
-import net.dreamstack.wisebot.setting.Transfers;
+import net.dreamstack.wisebot.setting.TransferSetting;
 import net.dreamstack.wisebot.setting.WiseSetting;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.boot.context.properties.EnableConfigurationProperties;
 
+import java.util.UUID;
+
 @SpringBootApplication
 @EnableConfigurationProperties({
         WiseSetting.class,
-        Transfers.class
+        TransferSetting.class
     }
 )
 public class WiseBotApplication {

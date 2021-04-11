@@ -9,7 +9,7 @@ import net.dreamstack.wisebot.domain.quotes.CreateTopUpQuote;
 import net.dreamstack.wisebot.domain.quotes.QuoteResponse;
 import net.dreamstack.wisebot.domain.rates.Rate;
 import net.dreamstack.wisebot.service.DefaultWiseApiService;
-import net.dreamstack.wisebot.setting.Transfers;
+import net.dreamstack.wisebot.setting.TransferSetting;
 import org.springframework.http.MediaType;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -31,7 +31,7 @@ public class WiseApiController {
 
     private static final String TOP_UP_QUOTE_TYPE = "REGULAR";
 
-    private final Transfers transfers;
+    private final TransferSetting transferSetting;
 
     @GetMapping(path = "/rates", produces = MediaType.APPLICATION_STREAM_JSON_VALUE)
     public Flux<Rate> getLKRRates() {
@@ -58,7 +58,7 @@ public class WiseApiController {
         return wiseApiService.createTopUpQuote(
                 CreateTopUpQuote.builder()
                         .type(TOP_UP_QUOTE_TYPE)
-                        .profile(transfers.getProfileId())
+                        .profile(transferSetting.getProfileId())
                         .rateType("FIXED")
                         .source("SGD")
                         .target("LKR")

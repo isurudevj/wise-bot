@@ -4,3 +4,7 @@ wise:
 
 transfers:
   profile-id: ${PROFILE_ID}
+  accounts:
+    borderless:
+      LKR:
+        account-id: ${LKR_BL_ACCOUNT_ID}

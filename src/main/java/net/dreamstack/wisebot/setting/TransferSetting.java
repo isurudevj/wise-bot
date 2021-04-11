@@ -11,6 +11,7 @@ import org.springframework.boot.context.properties.ConfigurationProperties;
 @AllArgsConstructor
 @Data
 @Builder
-public class Transfers {
+public class TransferSetting {
     private long profileId;
+    private AccountSetting accounts;
 }
